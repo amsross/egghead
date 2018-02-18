@@ -1,0 +1,17 @@
+sudo: true
+dist: trusty
+jobs:
+  include:
+  - stage: build docker image
+    script:
+    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    - docker build -t $TRAVIS_REPO_SLUG .
+    - docker images
+    - docker tag $TRAVIS_REPO_SLUG $TRAVIS_REPO_SLUG:latest
+    - docker tag $TRAVIS_REPO_SLUG $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT
+    - docker push $TRAVIS_REPO_SLUG
+  - stage: test
+env:
+  global:
+  - secure: dfMGnLjvzZXcH6EbUJwxqKFO3jL/oRay9wHqc16Guadz4IsrhULZBrj18BuuRsHRuTMGivmCsDowqBvw/25psQXjOWj5MREdQKT+o1spdkeQimhQWI6hJL0VAVkRoLwDQflCw3rjMJ3f4CvNguSOO92El9A1K2keQnRZjHV2URgMTumtMTOfyyrBmrgYcmdvR87p5M4xGwcGQqeYKgjGBV/L+kG3ARnKhWxYYN+UGeLC8THvAZwtTkwo2fipm0yNql/cTWff32Rkqvv7uF2VPqLbTGveLEOHX4IsejQzFyLfG8SwXVu3qPVU/Q3eN5rcLQqy8WC+AZLuhMh0bMMthgcvJjLTfiJgQLps92MawJAWQFI4h7EvN1ADOMco6vDAmb+NmTuItrAoRBEjh9C3oYYCHSyAacxlpC3wn7dVFnIqC6Fu2rBG/HiEj6pKnLsPcJsdiRTnoTpAC9j5YBYx9FnsSYeHnq/wleYSSzyBo7cm/uXMXn1jS3n/D5gpZTbA0LaPMW4aW3jHR6luDqNMzb0CIh4GgipBllWgfZw4i16s7TYVdAkoMPExdY8SoyH6HMovlakYmjrM80yf9bB0FuprPupSzKIEIKi2DporFqvhx5HNyhxuClNTCEJ309pvL5NGGUgNX8FeQiCbWZ5iD/+E89H5FiLFZRNFTNNOG6E=
+  - secure: UiAYllTjgdLwIMFdcGHxTI6fQvLZOYDsQJY9QDDvlnN2BeqScUWexH2t/PxCTuvU5tf8Z43DjUeP2qMODDfihQ4TZlCQKKU7Y6pQdQ8u867EXHZSfGXYeuSaioifYzn/EERo1HFoigfrqMzVnMw+dHCjaOwBWF8NEWq86kTuRmS3ywGW3zih43Rbk7LLyLR7Ec4Qn6GEUobreA1uaFDrwLm0PNOz36r1jBMy+KNNL5L9Tq6ktrCSRqRodNhwInsfrRuqyoIof9FPRPKw+IoFc7xGxykt0RGSgVQ07OF25OWJiZ0M6z9mbuGliBM4UzSOh7pA8KElknD8ApE1QT88thLVjZyOIuGZx02D9FsKyRLg3uScl7DoNAhCxY/egoAzGzypS6y9+/DN04qUs6er+iZo0gjn7u0MmQWffLvLIU1A9ihYbSArGk+OFYhIcpgDiWcBT6ar/OL5svpWKjIElBZ//UR83wZCX5oYapgo1k5fH0o7XkRdte+6vjOH6aY5VPPlOHrFd5Bj2WpoeBH9NK+QNN0x8m9IgybCeG/8OqQ+8MqB/k8IhKdJmTYiwSWW+kpk0Ylw5LAJ/231LZL78mu4CdavcYfVZwl7qvq9gBcfwTFFomrpIuISvMlxoo9uEnWjfb7aCFhda6WpH48Ma8FocwGOTbgMs/ooK6kvYdg=
