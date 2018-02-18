@@ -17,7 +17,7 @@ RUN git clone git://github.com/tpope/vim-commentary.git /root/.vim/bundle/vim-co
 # JS syntax highlighting
 RUN git clone https://github.com/jelera/vim-javascript-syntax.git /root/.vim/bundle/vim-javascript-syntax
 # JS indentation
-RUN git clone https://github.com/vim-scripts/JavaScript-Indent.git /root/.vim/bundle/JavaScript-Indent
+RUN git clone https://github.com/gavocanov/vim-js-indent.git /root/.vim/bundle/vim-js-indent
 
 COPY ./.vimrc /root/.vimrc
 COPY ./.zshrc /root/.zshrc
