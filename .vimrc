@@ -22,6 +22,7 @@ set wildignore+=*/tmp/*,*.swp,*.un~,*/vendor/*,*/cache/*,*/node_modules/*,.git/*
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set laststatus=0
 
 " show whitespace chars
 set listchars=tab:>-,trail:~
