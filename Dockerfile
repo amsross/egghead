@@ -1,6 +1,6 @@
 FROM node:latest
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y vim tmux zsh git
+RUN apt-get update && apt-get upgrade -y && apt-get install -y vim tmux zsh git jq
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
 # vim plugins
