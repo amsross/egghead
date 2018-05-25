@@ -1,7 +1,20 @@
 FROM node:latest
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y vim tmux zsh git jq
+
+RUN apt-get remove -y vim
+RUN apt-get autoremove -y
+WORKDIR /root
+RUN git clone https://github.com/vim/vim.git
+WORKDIR /root/vim
+RUN git checkout v8.1.0022
+WORKDIR /root/vim/src
+RUN make
+RUN make install
+
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+
+WORKDIR /root
 
 # vim plugins
 RUN mkdir -p /root/.vim/autoload /root/.vim/bundle
