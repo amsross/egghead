@@ -5,6 +5,10 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" set the Terminal StatusLine colors to be more readable
+hi StatusLineTerm cterm=bold,reverse ctermfg=NONE ctermbg=NONE
+hi StatusLineTermNC cterm=reverse ctermfg=NONE ctermbg=NONE
+
 set t_ut=
 set binary
 set eol
