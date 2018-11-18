@@ -2,6 +2,10 @@ FROM node:latest
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y vim tmux zsh git jq
 
+RUN echo "LC_ALL=en_US.UTF-8" >> /etc/environment
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+RUN echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
 RUN apt-get remove -y vim
 RUN apt-get autoremove -y
 WORKDIR /root
