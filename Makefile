@@ -1,5 +1,5 @@
 SHELL = /bin/bash
-IMAGE_NAME?=egghead
+IMAGE_NAME?=amsross/egghead
 IMAGE_TAG?=latest
 
 .PHONY: build run
