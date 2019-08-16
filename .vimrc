@@ -14,7 +14,8 @@ set binary
 set eol
 
 " Maintain undo history between sessions
-set undofile
+set noundofile
+set undodir=/tmp//,.
 
 set conceallevel=2
 
@@ -37,6 +38,14 @@ set list
 match ErrorMsg '\%>120v.\+'
 " whitespace line endings
 match ErrorMsg '\s\+$'
+
+" file explorer stuff
+" at directory of current file
+nnoremap <Leader>ee :Ex<CR>
+" in split at directory of current file
+nnoremap <Leader>es :Se<CR>
+" in vertical split at directory of current file
+nnoremap <Leader>ev :Vex<CR>
 
 " window stuff
 " size changes
