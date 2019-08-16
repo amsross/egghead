@@ -13,7 +13,7 @@ RUN apt-get autoremove -y
 WORKDIR /root
 RUN git clone https://github.com/vim/vim.git
 WORKDIR /root/vim
-RUN git checkout v8.1.0022
+RUN git checkout v8.1.1855
 WORKDIR /root/vim/src
 RUN make
 RUN make install
