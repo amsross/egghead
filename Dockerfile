@@ -38,7 +38,9 @@ RUN git clone https://github.com/gavocanov/vim-js-indent.git /root/.vim/bundle/v
 RUN git clone https://github.com/jparise/vim-graphql.git /root/.vim/bundle/vim-graphql
 # ReasonML
 RUN git clone https://github.com/reasonml-editor/vim-reason-plus.git /root/.vim/bundle/vim-reason-plus
-RUN git clone https://github.com/autozimu/LanguageClient-neovim /root/.vim/LanguageClient-neovim
+RUN git clone https://github.com/autozimu/LanguageClient-neovim /root/.vim/bundle/LanguageClient-neovim
+WORKDIR /root/.vim/bundle/LanguageClient-neovim
+RUN ./install.sh
 
 COPY ./reason-language-server /root/reason-language-server
 COPY ./.vimrc /root/.vimrc
