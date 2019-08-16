@@ -74,6 +74,11 @@ let g:LanguageClient_serverCommands = {
       \ 'reason': ['/root/reason-language-server']
       \ }
 
+augroup reason_ml
+  autocmd!
+  autocmd FileType reason :hi QuickFixLine ctermbg=none term=reverse
+augroup END
+
 function LC_maps()
   if has_key(g:LanguageClient_serverCommands, &filetype)
     set completefunc=LanguageClient#complete
