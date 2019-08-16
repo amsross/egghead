@@ -60,3 +60,23 @@ noremap <Right> <NOP>
 
 " don't copy overwritten selection when pasting
 vnoremap p "_dP
+
+let g:LanguageClient_serverCommands = {
+      \ 'reason': ['/root/reason-language-server']
+      \ }
+
+function LC_maps()
+  if has_key(g:LanguageClient_serverCommands, &filetype)
+    set completefunc=LanguageClient#complete
+    set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+    nnoremap <Leader>fr :call LanguageClient_textDocument_references()<CR>
+    nnoremap <Leader>fc :call LanguageClient_textDocument_formatting()<CR>
+    vnoremap <Leader>fc :call LanguageClient_textDocument_rangeFormatting()<CR>
+    nnoremap <Leader>fh :call LanguageClient_textDocument_hover()<CR>
+    vnoremap <Leader>fh :call LanguageClient_textDocument_hover()<CR>
+    nnoremap <Leader>fd :call LanguageClient_textDocument_definition()<CR>
+    vnoremap <Leader>fd :call LanguageClient_textDocument_definition()<CR>
+  endif
+endfunction
+
+autocmd FileType * call LC_maps()
