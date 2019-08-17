@@ -32,7 +32,7 @@ WORKDIR /root
 # vim plugins
 RUN mkdir -p /root/.vim/autoload /root/.vim/bundle && curl -LSso /root/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && \
 # defaults
-  git clone git://github.com/tpope/vim-sensible.git /root/.vim/bundle/vim-sensible && \
+  git clone git://github.com/liuchengxu/vim-better-default /root/.vim/bundle/vim-better-default && \
 # comments
   git clone git://github.com/tpope/vim-commentary.git /root/.vim/bundle/vim-commentary && \
 # JS syntax highlighting
